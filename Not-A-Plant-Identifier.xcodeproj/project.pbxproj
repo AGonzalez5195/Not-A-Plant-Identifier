@@ -60,7 +60,7 @@
 		1D92DC902330065900F94785 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		972A49DA233013ED007BFCB4 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		972A49DC233014E5007BFCB4 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		9740E56523312D7B00BC2E0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9740E56523312D7B00BC2E0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		9740E5672331385100BC2E0A /* pokemonIDicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemonIDicon.png; sourceTree = "<group>"; };
 		9740E5692331399800BC2E0A /* titleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = titleScreenViewController.swift; path = ../titleScreenViewController.swift; sourceTree = "<group>"; };
 		9771EE24233084F90074D3BC /* PokemonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypes.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 				97D7ECBC2330261A00258477 /* Controllers */,
 				97D7ECBE2330264E00258477 /* Helpers */,
 				97D7ECBD2330262B00258477 /* Models */,
-				9740E56523312D7B00BC2E0A /* Extensions.swift */,
 				1D92DC66232FF06700F94785 /* Info.plist */,
 				9740E5672331385100BC2E0A /* pokemonIDicon.png */,
 				1D92DC63232FF06700F94785 /* LaunchScreen.storyboard */,
@@ -154,6 +153,7 @@
 		97D7ECBE2330264E00258477 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9740E56523312D7B00BC2E0A /* Extensions.swift */,
 				972A49DC233014E5007BFCB4 /* AppError.swift */,
 				972A49DA233013ED007BFCB4 /* ImageHelper.swift */,
 				1D92DC8A2330055600F94785 /* NetworkManager.swift */,
