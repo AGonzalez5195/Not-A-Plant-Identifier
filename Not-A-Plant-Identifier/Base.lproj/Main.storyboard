@@ -372,7 +372,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemonlogo" translatesAutoresizingMaskIntoConstraints="NO" id="gjV-SL-JcE">
-                                <rect key="frame" x="52" y="44" width="310" height="16"/>
+                                <rect key="frame" x="52" y="44" width="310" height="442"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Identifier" translatesAutoresizingMaskIntoConstraints="NO" id="GpV-r3-j44">
                                 <rect key="frame" x="20" y="334" width="374" height="128"/>
@@ -485,6 +485,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="BAc-9T-SlS"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hC-TK-eQx">
+                                <rect key="frame" x="309" y="485" width="10" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tim"/>
+                                <connections>
+                                    <segue destination="Uy3-pq-LW1" kind="show" identifier="mySegueToDetail" id="iVo-uh-8GI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="G2W-PU-zpe"/>
@@ -492,11 +500,12 @@
                     <tabBarItem key="tabBarItem" title="My Collection" id="l9k-sU-lye"/>
                     <connections>
                         <outlet property="myCollectionView" destination="nzZ-df-fmK" id="ejg-QY-T66"/>
+                        <outlet property="timOutlet" destination="5hC-TK-eQx" id="xVM-N1-3wh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7Y-sz-Dt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="976"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="975.66964285714278"/>
         </scene>
     </scenes>
     <resources>
@@ -505,4 +514,7 @@
         <image name="image" width="600" height="600"/>
         <image name="pokemonlogo" width="1200" height="442"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iVo-uh-8GI"/>
+    </inferredMetricsTieBreakers>
 </document>

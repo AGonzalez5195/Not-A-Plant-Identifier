@@ -27,3 +27,11 @@ struct Pokemon: Codable {
     }
 }
 
+extension Pokemon: Equatable {
+    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+        return lhs.number == rhs.number &&
+            lhs.name == rhs.name &&
+            lhs.ThumbnailImage == rhs.ThumbnailImage &&
+            lhs.type == rhs.type
+    }
+}
