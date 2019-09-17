@@ -88,7 +88,7 @@ class PokedexViewController: UIViewController {
                 
                 let destVC = segue.destination as! detailViewController
                 
-                destVC.currentPokemonURL = "https://pokeapi.co/api/v2/pokemon/\(filteredPokemon[indexPath.row].name.lowercased())/"
+                destVC.currentPokemonURL = "https://pokeapi.co/api/v2/pokemon/\(filteredPokemon[indexPath.row].name.lowercased())/".replacingOccurrences(of: "♀", with: "-f")
                 destVC.currentPokemonType = filteredPokemon[indexPath.row].type[0]
             }
             
