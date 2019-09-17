@@ -1,0 +1,22 @@
+//
+//  AppError.swift
+//  Not-A-Plant-Identifier
+//
+//  Created by The Bootlegged Pokémon Company on 9/16/19.
+//  Copyright © The Bootlegged Pokémon Company. All rights reserved.
+//
+
+import Foundation
+
+enum AppError: Error {
+    case badJSONError
+    case networkError
+    case noDataError
+    case badHTTPResponse
+    case badUrl
+    case notFound //404 status code
+    case unauthorized //403 and 401 status code
+    case badImageData
+    case other(errorDescription: String)
+}
+
