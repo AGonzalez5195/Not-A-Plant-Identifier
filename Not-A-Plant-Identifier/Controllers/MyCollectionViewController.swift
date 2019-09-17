@@ -18,6 +18,12 @@ class MyCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
     }
     
+    var selectedPokemonName = ""
+    var selectedPokemonType = ""
+    var selectedPokemon: Pokemon!
+    
+    let alert = UIAlertController(title: "Delete Pokemon", message: "Would you like to remove the selected Pokemon from your favorites list?", preferredStyle: .alert)
+    
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,10 +50,31 @@ class MyCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedPokemon = myPokemon[indexPath.row]
+        selectedPokemonName = myPokemon[indexPath.row].name
+        selectedPokemonType = myPokemon[indexPath.row].type[0]
+        
+        self.present(alert, animated: true)
+    }
+    
+    private func setUpAlerts() {
+        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { action in
+            for (i,v) in self.myPokemon.enumerated() {
+                if v == self.selectedPokemon! {
+                    self.myPokemon.remove(at: i)
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myCollectionView.delegate = self
         myCollectionView.dataSource = self
+        setUpAlerts()
         
     }
 }
