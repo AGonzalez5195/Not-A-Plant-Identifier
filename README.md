@@ -6,7 +6,7 @@ Instantly identify plants. Accurate, fast, and content rich! In addition to desc
 
 Plant Identifier helps more than 30,000,000 users identifiy, learn, and enjoy all kinds of plants: flowers, trees, succulents, cacti, mushrooms, herbs, shrubs, grasses and more!
 
-Plant Identifier is capable of identifying 10,000+ plant species with an accuracy of 98% better than most human experts. With the revolutionary artificial intelligence engine, it's constantly learning from experts and specialists and is able to identify better every day.
+Plant Identifier is capable of identifying 10,000+ plant species with an accuracy of 98% better than most human experts. With the revolutionary artificial intelligence engine, it's constantly learning from experts and specialists and is able to identify with greater precision each day.
 And now, it's all at your fingertips! Picture this plant, and discover a new appreciation for the natural world together!
 
 #### Key Features:
