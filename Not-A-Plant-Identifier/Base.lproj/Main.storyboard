@@ -314,13 +314,25 @@
                         <viewLayoutGuide key="safeArea" id="cNw-uo-ssn"/>
                     </view>
                     <connections>
+                        <outlet property="atkStatBar" destination="eZM-SS-akQ" id="A3A-1H-H3N"/>
                         <outlet property="backButton" destination="IAT-Bc-LB8" id="PbN-IC-e5K"/>
+                        <outlet property="defStatBar" destination="bLq-Sd-1aA" id="KGI-uk-4Si"/>
+                        <outlet property="hpStatBar" destination="aCY-c8-2pB" id="Zcs-8m-UTd"/>
                         <outlet property="pokemonHeightLabel" destination="3MQ-j2-zxd" id="GhD-F3-bdH"/>
                         <outlet property="pokemonImage" destination="FZ1-jI-y2E" id="Ri5-fm-Huh"/>
                         <outlet property="pokemonNameLabel" destination="UAf-v1-1Li" id="F9e-ku-bQh"/>
                         <outlet property="pokemonNumberLabel" destination="jZ3-40-DMY" id="oHd-ZE-9dv"/>
                         <outlet property="pokemonWeightLabel" destination="B6f-6d-ZNU" id="9Q1-ha-cBL"/>
+                        <outlet property="spAtkStatBar" destination="8FA-h1-VHo" id="EXw-Y6-ToN"/>
+                        <outlet property="spDefStatBar" destination="agh-x8-v4e" id="wdd-UZ-3FT"/>
+                        <outlet property="speedStatBar" destination="h9b-8L-fVf" id="u0b-Ld-Ii1"/>
                         <outlet property="spinner" destination="ReJ-H3-fgs" id="rjW-QK-YSi"/>
+                        <outletCollection property="allBars" destination="aCY-c8-2pB" collectionClass="NSMutableArray" id="N7r-lP-cfl"/>
+                        <outletCollection property="allBars" destination="eZM-SS-akQ" collectionClass="NSMutableArray" id="Ky3-dO-H5G"/>
+                        <outletCollection property="allBars" destination="bLq-Sd-1aA" collectionClass="NSMutableArray" id="8VV-ex-OTG"/>
+                        <outletCollection property="allBars" destination="8FA-h1-VHo" collectionClass="NSMutableArray" id="cBx-VJ-Efd"/>
+                        <outletCollection property="allBars" destination="agh-x8-v4e" collectionClass="NSMutableArray" id="eNx-9O-VtV"/>
+                        <outletCollection property="allBars" destination="h9b-8L-fVf" collectionClass="NSMutableArray" id="Dcn-jy-8xj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1c-ch-VQp" userLabel="First Responder" sceneMemberID="firstResponder"/>

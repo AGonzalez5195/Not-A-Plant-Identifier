@@ -50,7 +50,7 @@ enum PokemonType: String {
         case "steel": view.backgroundColor = #colorLiteral(red: 0.5706357956, green: 0.5634247661, blue: 0.6288589239, alpha: 1)
         case "water": view.backgroundColor = #colorLiteral(red: 0.08909483999, green: 0.4139348269, blue: 0.7450439334, alpha: 1)
         default:
-            view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
     }
 }

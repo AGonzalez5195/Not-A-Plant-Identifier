@@ -17,6 +17,14 @@ class detailViewController: UIViewController {
     @IBOutlet weak var pokemonHeightLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet weak var hpStatBar: UIProgressView!
+    @IBOutlet weak var atkStatBar: UIProgressView!
+    @IBOutlet weak var defStatBar: UIProgressView!
+    @IBOutlet weak var spAtkStatBar: UIProgressView!
+    @IBOutlet weak var spDefStatBar: UIProgressView!
+    @IBOutlet weak var speedStatBar: UIProgressView!
+    
+    @IBOutlet var allBars: [UIProgressView]!
     
     //MARK: -- Properties
     var currentPokemonURL = String()
@@ -88,6 +96,23 @@ class detailViewController: UIViewController {
         pokemonImage.layer.borderWidth = 2.0
     }
     
+    private func setUpProgressBar(progressBar: UIProgressView) {
+        progressBar.transform = progressBar.transform.scaledBy(x: 1, y: 8)
+        
+        if progressBar.progress < 0.3 {
+            progressBar.progressTintColor = UIColor.red
+        } else if progressBar.progress >= 0.3 && progressBar.progress <= 0.6 {
+            progressBar.progressTintColor = UIColor.orange
+        } else if progressBar.progress > 0.6 {
+            progressBar.progressTintColor = UIColor.green
+        }
+        
+        progressBar.layer.cornerRadius = 10
+        progressBar.clipsToBounds = true
+        progressBar.layer.sublayers![1].cornerRadius = 10
+        progressBar.subviews[1].clipsToBounds = true
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -97,5 +122,8 @@ class detailViewController: UIViewController {
         prettifyUI()
         loadData(from: currentPokemonURL)
         print(currentPokemonURL)
+        for i in allBars {
+            setUpProgressBar(progressBar: i)
+        }
     }
 }
