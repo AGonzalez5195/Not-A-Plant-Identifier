@@ -16,7 +16,30 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var pokemonCollectionView: UICollectionView!
     
     @IBAction func sortButtonPressed(_ sender: UIButton) {
-        //UIALERTCONTROLLER STUFF GOES HERE
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel) { (action) in
+        }
+        let nameAction = UIAlertAction(title: "Name",
+                                       style: .default) { (action) in
+                                        
+                                        self.pokemon = Pokemon.getSortedName(arr: self.pokemon)
+        }
+        let numberAction = UIAlertAction(title: "Number",
+                                         style: .default) { (action) in
+                                            self.pokemon = Pokemon.getSortedNumber(arr: self.pokemon)
+                                            
+        }
+        let alert = UIAlertController(title: nil,
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
+        alert.addAction(nameAction)
+        alert.addAction(cancelAction)
+        alert.addAction(numberAction)
+        
+        self.present(alert, animated: true) {
+            
+        }
     }
     
     

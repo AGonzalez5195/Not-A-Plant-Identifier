@@ -25,5 +25,17 @@ struct Pokemon: Codable {
     static func getFilteredPokemonByType(arr: [Pokemon], searchString: String) -> [Pokemon] {
         return arr.filter{$0.type.joinedStringFromArray.lowercased().contains(searchString.lowercased())}
     }
-}
+    static func getSortedName(arr: [Pokemon]) -> [Pokemon] {
+        let sortedArray = arr.sorted{$0.name < $1.name}
+            return sortedArray
+            }
+            
+    static func getSortedNumber(arr: [Pokemon]) -> [Pokemon] {
+      return arr.sorted{$0.number < $1.number}
+        
+    }
+            
+        }
+
+
 
