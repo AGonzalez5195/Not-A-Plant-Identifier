@@ -26,6 +26,9 @@ class detailViewController: UIViewController {
     
     @IBOutlet var allBars: [UIProgressView]!
     
+    @IBOutlet weak var heartButton: UIButton!
+    
+    
     //MARK: -- Properties
     var currentPokemonURL = String()
     var currentPokemonType = String()
@@ -34,6 +37,11 @@ class detailViewController: UIViewController {
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func heartButtonPressed(_ sender: UIButton) {
+        //THIS WILL DO THE SAVE TO MY COLLECTIONS SHIT
+    }
+    
     
     //MARK: -- Functions
     private func loadData(from URL: String) {
