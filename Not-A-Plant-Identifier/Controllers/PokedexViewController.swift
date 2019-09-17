@@ -15,6 +15,11 @@ class PokedexViewController: UIViewController {
     
     @IBOutlet weak var pokemonCollectionView: UICollectionView!
     
+    @IBAction func sortButtonPressed(_ sender: UIButton) {
+        //UIALERTCONTROLLER STUFF GOES HERE
+    }
+    
+    
     //MARK: -- Properties
     var pokemon = [Pokemon]() {
         didSet {
@@ -31,6 +36,7 @@ class PokedexViewController: UIViewController {
             switch searchBar.selectedScopeButtonIndex {
             case 0: return Pokemon.getFilteredPokemonByName(arr: pokemon, searchString: searchString)
             case 1: return Pokemon.getFilteredPokemonByNumber(arr: pokemon, searchString: searchString)
+            case 2: return Pokemon.getFilteredPokemonByType(arr: pokemon, searchString: searchString)
             default: return pokemon
             }
         }

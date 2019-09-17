@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Pokemon..." translatesAutoresizingMaskIntoConstraints="NO" id="udj-Ze-ha2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                            <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="minimal" placeholder="Search Pokemon..." translatesAutoresizingMaskIntoConstraints="NO" id="udj-Ze-ha2">
+                                <rect key="frame" x="0.0" y="44" width="352" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.36078431372549019" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="barTintColor" red="0.83936984569999995" green="1" blue="0.58600378220000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -27,6 +27,7 @@
                                 <scopeButtonTitles>
                                     <string>Name</string>
                                     <string>Number</string>
+                                    <string>Type</string>
                                 </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="48a-SZ-eMI"/>
@@ -79,16 +80,28 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="DFb-gZ-RKy"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aak-hD-PHZ">
+                                <rect key="frame" x="374" y="55" width="32" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal" title="Sort">
+                                    <color key="titleColor" red="0.84258699420000005" green="0.33028796319999998" blue="0.30977064370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="sortButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sN-UU-j0S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.83936984569999995" green="1" blue="0.58600378220000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="udj-Ze-ha2" secondAttribute="trailing" id="2rB-QW-Rf5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VJy-6R-d9p" secondAttribute="trailing" id="3cS-3E-tis"/>
                             <constraint firstItem="udj-Ze-ha2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5C9-X7-imb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VJy-6R-d9p" secondAttribute="bottom" id="7ED-My-5py"/>
                             <constraint firstItem="VJy-6R-d9p" firstAttribute="top" secondItem="udj-Ze-ha2" secondAttribute="bottom" id="IPR-fc-QfS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aak-hD-PHZ" secondAttribute="trailing" constant="8" id="WHv-l2-n0M"/>
                             <constraint firstItem="udj-Ze-ha2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xtz-Ze-dQQ"/>
+                            <constraint firstItem="aak-hD-PHZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11.15" id="bI3-vo-CZR"/>
                             <constraint firstItem="VJy-6R-d9p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qdy-md-Jew"/>
+                            <constraint firstItem="aak-hD-PHZ" firstAttribute="leading" secondItem="udj-Ze-ha2" secondAttribute="trailing" id="sRv-bf-rwH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -294,6 +307,14 @@
                                 <rect key="frame" x="111" y="241" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HS-1X-tTH">
+                                <rect key="frame" x="192" y="777" width="29" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="14815"/>
+                                <connections>
+                                    <action selector="heartButtonPressed:" destination="Uy3-pq-LW1" eventType="touchUpInside" id="ljV-H7-g0b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84258699417114258" green="0.33028796315193176" blue="0.30977064371109009" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -317,6 +338,7 @@
                         <outlet property="atkStatBar" destination="eZM-SS-akQ" id="A3A-1H-H3N"/>
                         <outlet property="backButton" destination="IAT-Bc-LB8" id="PbN-IC-e5K"/>
                         <outlet property="defStatBar" destination="bLq-Sd-1aA" id="KGI-uk-4Si"/>
+                        <outlet property="heartButton" destination="1HS-1X-tTH" id="UFY-dg-PG5"/>
                         <outlet property="hpStatBar" destination="aCY-c8-2pB" id="Zcs-8m-UTd"/>
                         <outlet property="pokemonHeightLabel" destination="3MQ-j2-zxd" id="GhD-F3-bdH"/>
                         <outlet property="pokemonImage" destination="FZ1-jI-y2E" id="Ri5-fm-Huh"/>
@@ -337,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1c-ch-VQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="115"/>
+            <point key="canvasLocation" x="2342.0289855072465" y="114.50892857142857"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wF5-aR-jHz">
@@ -348,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemonlogo" translatesAutoresizingMaskIntoConstraints="NO" id="gjV-SL-JcE">
-                                <rect key="frame" x="52" y="44" width="310" height="16"/>
+                                <rect key="frame" x="52" y="44" width="310" height="442"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Identifier" translatesAutoresizingMaskIntoConstraints="NO" id="GpV-r3-j44">
                                 <rect key="frame" x="20" y="334" width="374" height="128"/>
@@ -424,6 +446,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="14815" width="512" height="512"/>
         <image name="Identifier" width="478" height="188"/>
         <image name="image" width="600" height="600"/>
         <image name="pokemonlogo" width="1200" height="442"/>

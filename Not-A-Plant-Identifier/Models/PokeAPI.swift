@@ -1,6 +1,6 @@
 //
 //  PokeAPI.swift
-//  collectionviewtest
+//  Not-A-Plant-Identifier
 //
 //  Created by The Bootlegged Pokémon Company on 9/16/19.
 //  Copyright © The Bootlegged Pokémon Company. All rights reserved.
