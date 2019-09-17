@@ -11,19 +11,19 @@ And now, it's all at your fingertips! Picture this plant, and discover a new app
 
 Key Features:
 
-###-Instantly identify thousands of plants, flowers, and trees with an advanced artificial intelligence
+### -Instantly identify thousands of plants, flowers, and trees with an advanced artificial intelligence
 
-###-Learn more about plants, including beautiful pictures around the world.
+### -Learn more about plants, including beautiful pictures around the world.
 
-###-Get suggestions and advice from a network of friendly garden and horticulture specialsits.
+### -Get suggestions and advice from a network of friendly garden and horticulture specialsits.
 
-###-Plant care tips and watering reminder, help you better grow your lovely plants.
+### -Plant care tips and watering reminder, help you better grow your lovely plants.
 
-###-Easy to use interface with friendly guides to help you get the best photo.
+### -Easy to use interface with friendly guides to help you get the best photo.
 
-###-Quickly and easily share your photos with a growing community of plant lovers.
+### -Quickly and easily share your photos with a growing community of plant lovers.
 
-###-Keep track of all the plants, trees, and flowers you identify in your own personal collection
+### -Keep track of all the plants, trees, and flowers you identify in your own personal collection
 
 
 Additionally, it does none of things mentioned above. We hope you enjoy pictures of Pokémon.
