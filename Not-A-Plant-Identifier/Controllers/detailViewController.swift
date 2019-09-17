@@ -23,7 +23,6 @@ class detailViewController: UIViewController {
     @IBOutlet weak var spAtkStatBar: UIProgressView!
     @IBOutlet weak var spDefStatBar: UIProgressView!
     @IBOutlet weak var speedStatBar: UIProgressView!
-    
     @IBOutlet weak var hpNumberLabel: UILabel!
     @IBOutlet weak var atkNumberLabel: UILabel!
     @IBOutlet weak var defNumberLabel: UILabel!
@@ -31,10 +30,7 @@ class detailViewController: UIViewController {
     @IBOutlet weak var spDefNumberLabel: UILabel!
     @IBOutlet weak var speedNumberLabel: UILabel!
     @IBOutlet var allBars: [UIProgressView]!
-    
     @IBOutlet weak var colorSegmentControl: UISegmentedControl!
-    
-    
     @IBOutlet weak var heartButton: UIButton!
     
     
@@ -43,6 +39,9 @@ class detailViewController: UIViewController {
     var currentPokemonType = String()
     var currentPokemonDefaultSprite = String()
     var currentPokemonShinySprite = String()
+    var favoritedPokemonName = ""
+    var favoritedPokemonNumber = 0
+    var favoritedPokemon = [Pokemon]()
     
     //MARK: -- IBActions
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -58,7 +57,7 @@ class detailViewController: UIViewController {
     }
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
-        //THIS WILL DO THE SAVE TO MY COLLECTIONS SHIT
+        loadFavoriteData()
     }
     
     
@@ -97,6 +96,20 @@ class detailViewController: UIViewController {
         }
     }
     
+    private func loadFavoriteData() {
+        PokeAPIClient.shared.getFavoritePokemon(searchString: favoritedPokemonName) {
+            (result) in DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let pokemonFromOnlineAPI):
+                    self.favoritedPokemon = pokemonFromOnlineAPI
+                    print(self.favoritedPokemon)
+                }
+            }
+        }
+    }
+    
     private func setBackgroundColor(){
         let Type = PokemonType(rawValue: currentPokemonType)
         Type?.setBGColor(view: view)
@@ -113,6 +126,8 @@ class detailViewController: UIViewController {
         spAtkNumberLabel.text = Pokemon.stats[2].base_stat.description
         spDefNumberLabel.text = Pokemon.stats[1].base_stat.description
         speedNumberLabel.text = Pokemon.stats[0].base_stat.description
+        favoritedPokemonName = Pokemon.name.lowercased()
+        favoritedPokemonNumber = Pokemon.id
     }
     
     private func prettifyUI () {
@@ -161,7 +176,7 @@ class detailViewController: UIViewController {
         atkStatBar.progress = pokemonAtkFloat/255
         defStatBar.progress = pokemonDefFloat/255
         spAtkStatBar.progress = pokemonSpAtkFloat/255
-        spDefStatBar.progress = pokemonDefFloat/255
+        spDefStatBar.progress = pokemonSpDefFloat/255
         speedStatBar.progress = pokemonSpeedFloat/255
     }
     
