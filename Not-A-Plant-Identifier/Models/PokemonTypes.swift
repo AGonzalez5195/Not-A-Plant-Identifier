@@ -2,8 +2,8 @@
 //  PokemonTypes.swift
 //  Not-A-Plant-Identifier
 //
-//  Created by Anthony Gonzalez on 9/16/19.
-//  Copyright © 2019 The Bootlegged Pokémon Company. All rights reserved.
+//  Created by The Bootlegged Pokémon Company on 9/16/19.
+//  Copyright © The Bootlegged Pokémon Company. All rights reserved.
 //
 
 import Foundation
