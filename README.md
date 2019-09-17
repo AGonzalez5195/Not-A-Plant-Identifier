@@ -26,4 +26,4 @@ And now, it's all at your fingertips! Picture this plant, and discover a new app
 ##### -Keep track of all the plants, trees, and flowers you identify in your own personal collection
 
 
-Additionally, it does none of things mentioned above. We hope you enjoy pictures of Pokémon.
+Additionally, it does none of things mentioned above. Life can be hard sometimes but we hope you like Pokémon.
