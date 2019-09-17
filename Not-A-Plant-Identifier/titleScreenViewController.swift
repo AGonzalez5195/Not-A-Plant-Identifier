@@ -12,7 +12,7 @@ class titleScreenViewController: UIViewController {
 
     @IBAction func pokeballButton(_ sender: UIButton) {
         sender.shake()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [unowned self] in
             self.performSegue(withIdentifier: "pokeSegue", sender: nil)
         }
     }

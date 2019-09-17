@@ -24,7 +24,16 @@ class detailViewController: UIViewController {
     @IBOutlet weak var spDefStatBar: UIProgressView!
     @IBOutlet weak var speedStatBar: UIProgressView!
     
+    @IBOutlet weak var hpNumberLabel: UILabel!
+    @IBOutlet weak var atkNumberLabel: UILabel!
+    @IBOutlet weak var defNumberLabel: UILabel!
+    @IBOutlet weak var spAtkNumberLabel: UILabel!
+    @IBOutlet weak var spDefNumberLabel: UILabel!
+    @IBOutlet weak var speedNumberLabel: UILabel!
     @IBOutlet var allBars: [UIProgressView]!
+    
+    @IBOutlet weak var colorSegmentControl: UISegmentedControl!
+    
     
     @IBOutlet weak var heartButton: UIButton!
     
@@ -32,10 +41,20 @@ class detailViewController: UIViewController {
     //MARK: -- Properties
     var currentPokemonURL = String()
     var currentPokemonType = String()
+    var currentPokemonDefaultSprite = String()
+    var currentPokemonShinySprite = String()
     
     //MARK: -- IBActions
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func spriteColorSegmentPressed(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: loadDefaultSprite()
+        case 1: loadShinySprite()
+        default: ()
+        }
     }
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
@@ -51,17 +70,37 @@ class detailViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                 case .success(let pokemonData):
+                    self.currentPokemonDefaultSprite = pokemonData.sprites.defaultPokemonSprite
+                    self.currentPokemonShinySprite = pokemonData.sprites.shinyPokemonSprite
                     self.setUpInformation(from: pokemonData)
-                    self.loadImage(from: pokemonData)
+                    self.setStats(from: pokemonData)
+                    self.loadDefaultSprite()
                 }
             }
         }
     }
     
-    private func loadImage(from pokemonData: PokeAPI) {
+    private func loadDefaultSprite() {
         self.spinner.isHidden = false
         self.spinner.startAnimating()
-        ImageHelper.shared.fetchImage(urlString: pokemonData.sprites.pokemonSprite) { (result) in
+        ImageHelper.shared.fetchImage(urlString: currentPokemonDefaultSprite) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let imageFromOnline):
+                    self.pokemonImage.image = imageFromOnline
+                    self.spinner.isHidden = true
+                    self.spinner.stopAnimating()
+                }
+            }
+        }
+    }
+    
+    private func loadShinySprite() {
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+        ImageHelper.shared.fetchImage(urlString: currentPokemonShinySprite ) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
@@ -85,7 +124,12 @@ class detailViewController: UIViewController {
         pokemonHeightLabel.text = "Ht: \(Pokemon.height)"
         pokemonWeightLabel.text = "Wt: \(Pokemon.weight)"
         pokemonNumberLabel.text = "#\(Pokemon.id)"
-        
+        hpNumberLabel.text = Pokemon.stats[5].base_stat.description
+        atkNumberLabel.text = Pokemon.stats[4].base_stat.description
+        defNumberLabel.text = Pokemon.stats[3].base_stat.description
+        spAtkNumberLabel.text = Pokemon.stats[2].base_stat.description
+        spDefNumberLabel.text = Pokemon.stats[1].base_stat.description
+        speedNumberLabel.text = Pokemon.stats[0].base_stat.description
     }
     
     private func prettifyUI () {
@@ -120,6 +164,24 @@ class detailViewController: UIViewController {
         progressBar.layer.sublayers![1].cornerRadius = 10
         progressBar.subviews[1].clipsToBounds = true
     }
+    
+    
+    private func setStats(from pokemon: PokeAPI){
+        let pokemonHPFloat = Float(pokemon.stats[5].base_stat)
+        let pokemonAtkFloat = Float(pokemon.stats[4].base_stat)
+        let pokemonDefFloat = Float(pokemon.stats[3].base_stat)
+        let pokemonSpAtkFloat = Float(pokemon.stats[2].base_stat)
+        let pokemonSpDefFloat = Float(pokemon.stats[1].base_stat)
+        let pokemonSpeedFloat = Float(pokemon.stats[0].base_stat)
+        
+        hpStatBar.progress = pokemonHPFloat/255
+        atkStatBar.progress = pokemonAtkFloat/255
+        defStatBar.progress = pokemonDefFloat/255
+        spAtkStatBar.progress = pokemonSpAtkFloat/255
+        spDefStatBar.progress = pokemonDefFloat/255
+        speedStatBar.progress = pokemonSpeedFloat/255
+    }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

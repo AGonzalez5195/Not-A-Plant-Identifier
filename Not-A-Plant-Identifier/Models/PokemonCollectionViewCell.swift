@@ -13,11 +13,13 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBOutlet weak var pokemonNameLabel: UILabel!
+    @IBOutlet weak var pokemonNumberLabel: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
     
     func configureCell (with Pokemon: Pokemon) {
         self.backgroundColor = #colorLiteral(red: 0.7970843911, green: 1, blue: 0.5273691416, alpha: 1)
         self.pokemonNameLabel.text = Pokemon.name
+        self.pokemonNumberLabel.text = Pokemon.number
         
         self.spinner.isHidden = false
         self.spinner.startAnimating()

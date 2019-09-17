@@ -14,6 +14,7 @@ struct PokeAPI: Codable {
     let weight: Double
     let id: Int
     let sprites: Sprites
+    let stats: [Stat]
     
     
     static func getPokemonData(pokeAPIURL: String, completionHandler: @escaping (Result<PokeAPI,AppError>) -> () ) {
@@ -34,9 +35,15 @@ struct PokeAPI: Codable {
 }
 
 struct Sprites: Codable {
-    let pokemonSprite: String
+    let defaultPokemonSprite: String
+    let shinyPokemonSprite: String
 
     enum CodingKeys: String, CodingKey {
-        case pokemonSprite = "front_default"
+        case defaultPokemonSprite = "front_default"
+        case shinyPokemonSprite = "front_shiny"
     }
+}
+
+struct Stat: Codable {
+    let base_stat: Int
 }

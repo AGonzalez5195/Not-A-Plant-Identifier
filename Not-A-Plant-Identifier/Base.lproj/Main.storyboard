@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Pokédex-->
+        <!--Pokémon Identifier-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PokedexViewController" customModule="Not_A_Plant_Identifier" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="minimal" placeholder="Search Pokemon..." translatesAutoresizingMaskIntoConstraints="NO" id="udj-Ze-ha2">
-                                <rect key="frame" x="0.0" y="44" width="352" height="56"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Pokemon..." translatesAutoresizingMaskIntoConstraints="NO" id="udj-Ze-ha2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.36078431372549019" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="barTintColor" red="0.83936984569999995" green="1" blue="0.58600378220000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -34,7 +34,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-6R-d9p">
-                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" red="0.83936984569999995" green="1" blue="0.58600378220000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gi5-2I-mw5">
                                     <size key="itemSize" width="131" height="118"/>
@@ -50,10 +50,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="131" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsi-Mz-iJ6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="111" height="95"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-9j-XYL">
                                                     <rect key="frame" x="6" y="92" width="110" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -64,11 +60,23 @@
                                                     <rect key="frame" x="47" y="37" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5e-pI-0P7">
+                                                    <rect key="frame" x="86" y="0.0" width="31" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.45182293653488159" green="0.45182293653488159" blue="0.45182293653488159" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsi-Mz-iJ6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="111" height="95"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <connections>
                                             <outlet property="pokemonImage" destination="dsi-Mz-iJ6" id="Ytm-1n-LtU"/>
                                             <outlet property="pokemonNameLabel" destination="NGV-9j-XYL" id="Hul-2n-ZMP"/>
+                                            <outlet property="pokemonNumberLabel" destination="P5e-pI-0P7" id="ku4-hI-Obh"/>
                                             <outlet property="spinner" destination="uyD-us-IMf" id="Qgs-by-pqf"/>
                                             <segue destination="Uy3-pq-LW1" kind="presentation" identifier="segueToDetail" id="Gmn-hn-EVe"/>
                                         </connections>
@@ -79,16 +87,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="DFb-gZ-RKy"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aak-hD-PHZ">
-                                <rect key="frame" x="374" y="55" width="32" height="32"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <state key="normal" title="Sort">
-                                    <color key="titleColor" red="0.84258699420000005" green="0.33028796319999998" blue="0.30977064370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="sortButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sN-UU-j0S"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.83936984569999995" green="1" blue="0.58600378220000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -96,15 +94,28 @@
                             <constraint firstItem="udj-Ze-ha2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5C9-X7-imb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VJy-6R-d9p" secondAttribute="bottom" id="7ED-My-5py"/>
                             <constraint firstItem="VJy-6R-d9p" firstAttribute="top" secondItem="udj-Ze-ha2" secondAttribute="bottom" id="IPR-fc-QfS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aak-hD-PHZ" secondAttribute="trailing" constant="8" id="WHv-l2-n0M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="udj-Ze-ha2" secondAttribute="trailing" id="Poh-VC-ftj"/>
                             <constraint firstItem="udj-Ze-ha2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xtz-Ze-dQQ"/>
-                            <constraint firstItem="aak-hD-PHZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11.15" id="bI3-vo-CZR"/>
                             <constraint firstItem="VJy-6R-d9p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qdy-md-Jew"/>
-                            <constraint firstItem="aak-hD-PHZ" firstAttribute="leading" secondItem="udj-Ze-ha2" secondAttribute="trailing" id="sRv-bf-rwH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pokédex" id="lUh-tv-c29"/>
+                    <navigationItem key="navigationItem" title="Pokémon Identifier" id="h0b-8W-iKu">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="hBM-CP-vOi">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aak-hD-PHZ">
+                                <rect key="frame" x="362" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal" title="Sort">
+                                    <color key="titleColor" red="1" green="0.3601276954" blue="0.40923969069999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="sortButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sN-UU-j0S"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pokemonCollectionView" destination="VJy-6R-d9p" id="1ZX-dA-fAb"/>
                         <outlet property="searchBar" destination="udj-Ze-ha2" id="v0h-e2-xJW"/>
@@ -112,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="114.50892857142857"/>
+            <point key="canvasLocation" x="2111.594202898551" y="114.50892857142857"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Nxz-H7-1hr">
@@ -174,7 +185,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="aEX-a9-pEm">
-                                <rect key="frame" x="0.0" y="509" width="90" height="170.5"/>
+                                <rect key="frame" x="42" y="510" width="90" height="170.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nyS-VS-fPW">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
@@ -213,7 +224,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Q1N-E2-Xy1">
-                                <rect key="frame" x="181" y="509" width="150" height="192"/>
+                                <rect key="frame" x="223" y="510" width="150" height="192"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aCY-c8-2pB">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="2"/>
@@ -240,7 +251,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVO-OS-Fhf">
-                                <rect key="frame" x="108" y="509" width="42" height="170.5"/>
+                                <rect key="frame" x="150" y="510" width="42" height="170.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-jq-sLV">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -289,14 +300,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaW-Xs-euN">
-                                <rect key="frame" x="0.0" y="692" width="50" height="21"/>
+                                <rect key="frame" x="42" y="693" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4X-pi-35Y">
-                                <rect key="frame" x="108" y="692" width="21" height="21"/>
+                                <rect key="frame" x="150" y="693" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -314,38 +325,57 @@
                                     <action selector="heartButtonPressed:" destination="Uy3-pq-LW1" eventType="touchUpInside" id="ljV-H7-g0b"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ly3-Gr-KVV">
+                                <rect key="frame" x="69" y="413" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Normal"/>
+                                    <segment title="Shiny"/>
+                                </segments>
+                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <connections>
+                                    <action selector="spriteColorSegmentPressed:" destination="Uy3-pq-LW1" eventType="valueChanged" id="V8F-cD-8Zv"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.84258699417114258" green="0.33028796315193176" blue="0.30977064371109009" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Q1N-E2-Xy1" firstAttribute="leading" secondItem="cNw-uo-ssn" secondAttribute="leading" constant="181" id="05x-rr-QOh"/>
+                            <constraint firstItem="Q1N-E2-Xy1" firstAttribute="leading" secondItem="cNw-uo-ssn" secondAttribute="leading" constant="223" id="05x-rr-QOh"/>
                             <constraint firstItem="sVO-OS-Fhf" firstAttribute="top" secondItem="Q1N-E2-Xy1" secondAttribute="top" id="2Mb-b8-sHA"/>
-                            <constraint firstItem="B6f-6d-ZNU" firstAttribute="leading" secondItem="Q1N-E2-Xy1" secondAttribute="trailing" constant="-42" id="2oK-9S-N6S"/>
+                            <constraint firstItem="B6f-6d-ZNU" firstAttribute="leading" secondItem="Q1N-E2-Xy1" secondAttribute="trailing" constant="-84" id="2oK-9S-N6S"/>
                             <constraint firstItem="eAl-3h-Eo7" firstAttribute="top" secondItem="cNw-uo-ssn" secondAttribute="top" constant="56" id="3CB-Pg-UpK"/>
                             <constraint firstItem="eAl-3h-Eo7" firstAttribute="leading" secondItem="FZ1-jI-y2E" secondAttribute="trailing" constant="49" id="F4k-OG-itr"/>
                             <constraint firstItem="Q1N-E2-Xy1" firstAttribute="leading" secondItem="sVO-OS-Fhf" secondAttribute="trailing" constant="31" id="L4L-P3-4hC"/>
                             <constraint firstItem="cNw-uo-ssn" firstAttribute="trailing" secondItem="eAl-3h-Eo7" secondAttribute="trailing" id="Lby-oC-fuT"/>
-                            <constraint firstItem="cNw-uo-ssn" firstAttribute="trailing" secondItem="Q1N-E2-Xy1" secondAttribute="trailing" constant="83" id="N7O-C9-Xz9"/>
+                            <constraint firstItem="cNw-uo-ssn" firstAttribute="trailing" secondItem="Q1N-E2-Xy1" secondAttribute="trailing" constant="41" id="N7O-C9-Xz9"/>
                             <constraint firstItem="sVO-OS-Fhf" firstAttribute="top" secondItem="aEX-a9-pEm" secondAttribute="top" id="Y1k-du-qSG"/>
-                            <constraint firstItem="aEX-a9-pEm" firstAttribute="leading" secondItem="cNw-uo-ssn" secondAttribute="leading" id="ZuT-c6-dSt"/>
+                            <constraint firstItem="aEX-a9-pEm" firstAttribute="leading" secondItem="cNw-uo-ssn" secondAttribute="leading" constant="42" id="ZuT-c6-dSt"/>
                             <constraint firstItem="FZ1-jI-y2E" firstAttribute="top" secondItem="cNw-uo-ssn" secondAttribute="top" constant="105" id="acT-QT-jiV"/>
-                            <constraint firstItem="cNw-uo-ssn" firstAttribute="bottom" secondItem="Q1N-E2-Xy1" secondAttribute="bottom" constant="161" id="isV-xj-iB8"/>
+                            <constraint firstItem="cNw-uo-ssn" firstAttribute="bottom" secondItem="Q1N-E2-Xy1" secondAttribute="bottom" constant="160" id="isV-xj-iB8"/>
                             <constraint firstItem="FZ1-jI-y2E" firstAttribute="leading" secondItem="cNw-uo-ssn" secondAttribute="leading" constant="20" id="sSY-AR-Oxe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cNw-uo-ssn"/>
                     </view>
                     <connections>
+                        <outlet property="atkNumberLabel" destination="vKI-EB-KRu" id="w0k-7W-itU"/>
                         <outlet property="atkStatBar" destination="eZM-SS-akQ" id="A3A-1H-H3N"/>
                         <outlet property="backButton" destination="IAT-Bc-LB8" id="PbN-IC-e5K"/>
+                        <outlet property="colorSegmentControl" destination="ly3-Gr-KVV" id="TyB-po-wrR"/>
+                        <outlet property="defNumberLabel" destination="bwc-47-Ia3" id="Zg6-s8-flK"/>
                         <outlet property="defStatBar" destination="bLq-Sd-1aA" id="KGI-uk-4Si"/>
                         <outlet property="heartButton" destination="1HS-1X-tTH" id="UFY-dg-PG5"/>
+                        <outlet property="hpNumberLabel" destination="Ns9-jq-sLV" id="SSi-mb-DYb"/>
                         <outlet property="hpStatBar" destination="aCY-c8-2pB" id="Zcs-8m-UTd"/>
                         <outlet property="pokemonHeightLabel" destination="3MQ-j2-zxd" id="GhD-F3-bdH"/>
                         <outlet property="pokemonImage" destination="FZ1-jI-y2E" id="Ri5-fm-Huh"/>
                         <outlet property="pokemonNameLabel" destination="UAf-v1-1Li" id="F9e-ku-bQh"/>
                         <outlet property="pokemonNumberLabel" destination="jZ3-40-DMY" id="oHd-ZE-9dv"/>
                         <outlet property="pokemonWeightLabel" destination="B6f-6d-ZNU" id="9Q1-ha-cBL"/>
+                        <outlet property="spAtkNumberLabel" destination="Bne-wc-6qu" id="0Pz-2q-uXQ"/>
                         <outlet property="spAtkStatBar" destination="8FA-h1-VHo" id="EXw-Y6-ToN"/>
+                        <outlet property="spDefNumberLabel" destination="e2k-XT-8vF" id="8Xx-LP-4iq"/>
                         <outlet property="spDefStatBar" destination="agh-x8-v4e" id="wdd-UZ-3FT"/>
+                        <outlet property="speedNumberLabel" destination="f4X-pi-35Y" id="6gY-JR-uKl"/>
                         <outlet property="speedStatBar" destination="h9b-8L-fVf" id="u0b-Ld-Ii1"/>
                         <outlet property="spinner" destination="ReJ-H3-fgs" id="rjW-QK-YSi"/>
                         <outletCollection property="allBars" destination="aCY-c8-2pB" collectionClass="NSMutableArray" id="N7r-lP-cfl"/>
@@ -358,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1c-ch-VQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2342.0289855072465" y="114.50892857142857"/>
+            <point key="canvasLocation" x="3231.884057971015" y="114.50892857142857"/>
         </scene>
         <!--Title Screen View Controller-->
         <scene sceneID="wF5-aR-jHz">
@@ -426,7 +456,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Quv-fh-1fl"/>
+                        <segue destination="z3a-ca-wiF" kind="relationship" relationship="viewControllers" id="Quv-fh-1fl"/>
                         <segue destination="2gh-Xf-4ct" kind="relationship" relationship="viewControllers" id="xBf-W2-pfM"/>
                     </connections>
                 </tabBarController>
@@ -449,6 +479,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7Y-sz-Dt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048" y="976"/>
+        </scene>
+        <!--Pokédex-->
+        <scene sceneID="mOI-6Y-QSn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z3a-ca-wiF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pokédex" id="lUh-tv-c29"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S2J-sk-vT0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.83936984569999995" green="1" blue="0.58600378220000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="0.3601276954" blue="0.40923969069999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="z3e-5o-sE2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldk-No-cKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="114.50892857142857"/>
         </scene>
     </scenes>
     <resources>
