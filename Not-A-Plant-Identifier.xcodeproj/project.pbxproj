@@ -19,6 +19,8 @@
 		972A49DB233013ED007BFCB4 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A49DA233013ED007BFCB4 /* ImageHelper.swift */; };
 		972A49DD233014E5007BFCB4 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A49DC233014E5007BFCB4 /* AppError.swift */; };
 		9740E56623312D7B00BC2E0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E56523312D7B00BC2E0A /* Extensions.swift */; };
+		9740E5682331385100BC2E0A /* pokemonIDicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9740E5672331385100BC2E0A /* pokemonIDicon.png */; };
+		9740E56A2331399800BC2E0A /* titleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5692331399800BC2E0A /* titleScreenViewController.swift */; };
 		9771EE25233084F90074D3BC /* PokemonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9771EE24233084F90074D3BC /* PokemonTypes.swift */; };
 		97D7ECB92330237B00258477 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7ECB82330237B00258477 /* detailViewController.swift */; };
 		97D7ECBB2330256300258477 /* MyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7ECBA2330256300258477 /* MyCollectionViewController.swift */; };
@@ -59,6 +61,8 @@
 		972A49DA233013ED007BFCB4 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		972A49DC233014E5007BFCB4 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		9740E56523312D7B00BC2E0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9740E5672331385100BC2E0A /* pokemonIDicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemonIDicon.png; sourceTree = "<group>"; };
+		9740E5692331399800BC2E0A /* titleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = titleScreenViewController.swift; path = ../titleScreenViewController.swift; sourceTree = "<group>"; };
 		9771EE24233084F90074D3BC /* PokemonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypes.swift; sourceTree = "<group>"; };
 		97D7ECB82330237B00258477 /* detailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		97D7ECBA2330256300258477 /* MyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				97D7ECBD2330262B00258477 /* Models */,
 				9740E56523312D7B00BC2E0A /* Extensions.swift */,
 				1D92DC66232FF06700F94785 /* Info.plist */,
+				9740E5672331385100BC2E0A /* pokemonIDicon.png */,
 				1D92DC63232FF06700F94785 /* LaunchScreen.storyboard */,
 				1D92DC61232FF06700F94785 /* Assets.xcassets */,
 			);
@@ -127,6 +132,7 @@
 		97D7ECBC2330261A00258477 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9740E5692331399800BC2E0A /* titleScreenViewController.swift */,
 				1D92DC5C232FF06600F94785 /* PokedexViewController.swift */,
 				97D7ECB82330237B00258477 /* detailViewController.swift */,
 				97D7ECBA2330256300258477 /* MyCollectionViewController.swift */,
@@ -263,6 +269,7 @@
 				1D92DC65232FF06700F94785 /* LaunchScreen.storyboard in Resources */,
 				1D92DC62232FF06700F94785 /* Assets.xcassets in Resources */,
 				1D92DC60232FF06600F94785 /* Main.storyboard in Resources */,
+				9740E5682331385100BC2E0A /* pokemonIDicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +307,7 @@
 				97D7ECBB2330256300258477 /* MyCollectionViewController.swift in Sources */,
 				972A49DB233013ED007BFCB4 /* ImageHelper.swift in Sources */,
 				97D7ECC023302B5100258477 /* PokeAPI.swift in Sources */,
+				9740E56A2331399800BC2E0A /* titleScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

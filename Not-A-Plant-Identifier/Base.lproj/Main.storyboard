@@ -361,10 +361,10 @@
             </objects>
             <point key="canvasLocation" x="2342.0289855072465" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Title Screen View Controller-->
         <scene sceneID="wF5-aR-jHz">
             <objects>
-                <viewController id="Qcr-8s-KO2" sceneMemberID="viewController">
+                <viewController id="Qcr-8s-KO2" customClass="titleScreenViewController" customModule="Not_A_Plant_Identifier" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oqz-H7-8PF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,13 +381,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="image"/>
                                 <connections>
-                                    <segue destination="FCC-uk-3VA" kind="presentation" id="46z-bt-8e0"/>
+                                    <action selector="pokeballButton:" destination="Qcr-8s-KO2" eventType="touchUpInside" id="gi4-nK-ANj"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokemonlogo" translatesAutoresizingMaskIntoConstraints="NO" id="DwM-sv-v1U">
                                 <rect key="frame" x="52" y="44" width="310" height="442"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcx-xY-gqK" userLabel="Tom">
+                                <rect key="frame" x="297" y="796" width="65" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="FCC-uk-3VA" kind="show" identifier="pokeSegue" id="atZ-Xz-Tgn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.3601276954" blue="0.40923969069999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
