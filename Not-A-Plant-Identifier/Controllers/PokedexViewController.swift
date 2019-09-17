@@ -29,7 +29,6 @@ class PokedexViewController: UIViewController {
                                          style: .default) { (action) in
                                             self.pokemon = Pokemon.getSortedNumber(arr: self.pokemon)
         }
-        
         let alert = UIAlertController(title: nil,
                                       message: nil,
                                       preferredStyle: .actionSheet)

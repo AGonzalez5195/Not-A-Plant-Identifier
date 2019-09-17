@@ -51,8 +51,8 @@ class detailViewController: UIViewController {
     
     @IBAction func spriteColorSegmentPressed(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0: loadDefaultSprite()
-        case 1: loadShinySprite()
+        case 0: loadSpriteImage(from: currentPokemonDefaultSprite)
+        case 1: loadSpriteImage(from: currentPokemonShinySprite)
         default: ()
         }
     }
@@ -74,33 +74,16 @@ class detailViewController: UIViewController {
                     self.currentPokemonShinySprite = pokemonData.sprites.shinyPokemonSprite
                     self.setUpInformation(from: pokemonData)
                     self.setStats(from: pokemonData)
-                    self.loadDefaultSprite()
+                    self.loadSpriteImage(from: self.currentPokemonDefaultSprite)
                 }
             }
         }
     }
     
-    private func loadDefaultSprite() {
+    private func loadSpriteImage(from URL: String) {
         self.spinner.isHidden = false
         self.spinner.startAnimating()
-        ImageHelper.shared.fetchImage(urlString: currentPokemonDefaultSprite) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let imageFromOnline):
-                    self.pokemonImage.image = imageFromOnline
-                    self.spinner.isHidden = true
-                    self.spinner.stopAnimating()
-                }
-            }
-        }
-    }
-    
-    private func loadShinySprite() {
-        self.spinner.isHidden = false
-        self.spinner.startAnimating()
-        ImageHelper.shared.fetchImage(urlString: currentPokemonShinySprite ) { (result) in
+        ImageHelper.shared.fetchImage(urlString: URL) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
