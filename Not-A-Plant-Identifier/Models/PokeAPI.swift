@@ -35,10 +35,12 @@ struct PokeAPI: Codable {
 }
 
 struct Sprites: Codable {
-    let pokemonSprite: String
+    let defaultPokemonSprite: String
+    let shinyPokemonSprite: String
 
     enum CodingKeys: String, CodingKey {
-        case pokemonSprite = "front_default"
+        case defaultPokemonSprite = "front_default"
+        case shinyPokemonSprite = "front_shiny"
     }
 }
 

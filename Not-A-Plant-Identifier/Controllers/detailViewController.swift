@@ -32,16 +32,29 @@ class detailViewController: UIViewController {
     @IBOutlet weak var speedNumberLabel: UILabel!
     @IBOutlet var allBars: [UIProgressView]!
     
+    @IBOutlet weak var colorSegmentControl: UISegmentedControl!
+    
+    
     @IBOutlet weak var heartButton: UIButton!
     
     
     //MARK: -- Properties
     var currentPokemonURL = String()
     var currentPokemonType = String()
+    var currentPokemonDefaultSprite = String()
+    var currentPokemonShinySprite = String()
     
     //MARK: -- IBActions
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func spriteColorSegmentPressed(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: loadDefaultSprite()
+        case 1: loadShinySprite()
+        default: ()
+        }
     }
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
@@ -57,18 +70,37 @@ class detailViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                 case .success(let pokemonData):
+                    self.currentPokemonDefaultSprite = pokemonData.sprites.defaultPokemonSprite
+                    self.currentPokemonShinySprite = pokemonData.sprites.shinyPokemonSprite
                     self.setUpInformation(from: pokemonData)
-                    self.loadImage(from: pokemonData)
                     self.setStats(from: pokemonData)
+                    self.loadDefaultSprite()
                 }
             }
         }
     }
     
-    private func loadImage(from pokemonData: PokeAPI) {
+    private func loadDefaultSprite() {
         self.spinner.isHidden = false
         self.spinner.startAnimating()
-        ImageHelper.shared.fetchImage(urlString: pokemonData.sprites.pokemonSprite) { (result) in
+        ImageHelper.shared.fetchImage(urlString: currentPokemonDefaultSprite) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let imageFromOnline):
+                    self.pokemonImage.image = imageFromOnline
+                    self.spinner.isHidden = true
+                    self.spinner.stopAnimating()
+                }
+            }
+        }
+    }
+    
+    private func loadShinySprite() {
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+        ImageHelper.shared.fetchImage(urlString: currentPokemonShinySprite ) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
@@ -142,12 +174,12 @@ class detailViewController: UIViewController {
         let pokemonSpDefFloat = Float(pokemon.stats[1].base_stat)
         let pokemonSpeedFloat = Float(pokemon.stats[0].base_stat)
         
-                hpStatBar.progress = pokemonHPFloat/255
-                atkStatBar.progress = pokemonAtkFloat/255
-                defStatBar.progress = pokemonDefFloat/255
-                spAtkStatBar.progress = pokemonSpAtkFloat/255
-                spDefStatBar.progress = pokemonDefFloat/255
-                speedStatBar.progress = pokemonSpeedFloat/255
+        hpStatBar.progress = pokemonHPFloat/255
+        atkStatBar.progress = pokemonAtkFloat/255
+        defStatBar.progress = pokemonDefFloat/255
+        spAtkStatBar.progress = pokemonSpAtkFloat/255
+        spDefStatBar.progress = pokemonDefFloat/255
+        speedStatBar.progress = pokemonSpeedFloat/255
     }
     
     
