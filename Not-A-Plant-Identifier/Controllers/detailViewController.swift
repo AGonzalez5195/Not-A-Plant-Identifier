@@ -32,6 +32,8 @@ class detailViewController: UIViewController {
     //MARK: -- Properties
     var currentPokemonURL = String()
     var currentPokemonType = String()
+    var favoritedPokemonName = ""
+    var favoritedPokemon = [Pokemon]()
     
     //MARK: -- IBActions
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -39,11 +41,25 @@ class detailViewController: UIViewController {
     }
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
-        //THIS WILL DO THE SAVE TO MY COLLECTIONS SHIT
+        loadFavoriteData()
     }
     
     
     //MARK: -- Functions
+    
+    private func loadFavoriteData() { 
+        PokeAPIClient.shared.getFavoritePokemon(searchString: favoritedPokemonName) {
+            (result) in DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let pokemonFromOnlineAPI):
+                    self.favoritedPokemon = pokemonFromOnlineAPI
+                }
+            }
+        }
+    }
+    
     private func loadData(from URL: String) {
         PokeAPI.getPokemonData(pokeAPIURL: URL) { (result) in
             DispatchQueue.main.async {
@@ -85,7 +101,7 @@ class detailViewController: UIViewController {
         pokemonHeightLabel.text = "Ht: \(Pokemon.height)"
         pokemonWeightLabel.text = "Wt: \(Pokemon.weight)"
         pokemonNumberLabel.text = "#\(Pokemon.id)"
-        
+        favoritedPokemonName = Pokemon.name.lowercased()
     }
     
     private func prettifyUI () {

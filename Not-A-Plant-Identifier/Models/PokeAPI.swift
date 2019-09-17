@@ -15,7 +15,6 @@ struct PokeAPI: Codable {
     let id: Int
     let sprites: Sprites
     
-    
     static func getPokemonData(pokeAPIURL: String, completionHandler: @escaping (Result<PokeAPI,AppError>) -> () ) {
         
         NetworkManager.shared.fetchData(urlString: pokeAPIURL) { (result) in
