@@ -54,7 +54,7 @@ class MyCollectionViewController: UIViewController, UICollectionViewDataSource, 
     @IBAction func unwind(segue: UIStoryboardSegue) {
         guard let detailVC = segue.source as? detailViewController else { fatalError() }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1 ) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
             let pokemon = detailVC.favoritedPokemon[0]
             self.myPokemon.append(pokemon)
             detailVC.favoritedPokemon = [Pokemon]()
@@ -75,6 +75,7 @@ class MyCollectionViewController: UIViewController, UICollectionViewDataSource, 
             for (i,v) in self.myPokemon.enumerated() {
                 if v == self.selectedPokemon! {
                     self.myPokemon.remove(at: i)
+                    break
                 }
             }
         }))

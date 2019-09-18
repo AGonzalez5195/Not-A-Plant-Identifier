@@ -65,6 +65,7 @@ class PokedexViewController: UIViewController {
     
     var searchString: String? = nil { didSet { self.pokemonCollectionView.reloadData()} }
     
+    
     //MARK: -- Functions
     private func loadData() {
         PokeAPIClient.shared.getPokemon {
@@ -141,6 +142,7 @@ extension PokedexViewController: UICollectionViewDelegate {
 extension PokedexViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchText
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
