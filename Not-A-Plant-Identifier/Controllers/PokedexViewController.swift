@@ -64,6 +64,7 @@ class PokedexViewController: UIViewController {
     }
     
     var searchString: String? = nil { didSet { self.pokemonCollectionView.reloadData()} }
+    var isSearching = Bool()
     
     
     //MARK: -- Functions
@@ -103,6 +104,7 @@ class PokedexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        isSearching = false
     }
 }
 
@@ -110,7 +112,7 @@ class PokedexViewController: UIViewController {
 extension PokedexViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //When the number of Pokemon being returned is empty, this is displaying the "No Search Results" label in the background.
-        if filteredPokemon.count == 0 {
+        if filteredPokemon.count == 0 && isSearching == true {
             let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: pokemonCollectionView.bounds.size.width, height: pokemonCollectionView.bounds.size.height))
             noDataLabel.text = "No Search Results"
             noDataLabel.textColor = UIColor.black
@@ -142,6 +144,7 @@ extension PokedexViewController: UICollectionViewDelegate {
 extension PokedexViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchText
+        isSearching = true
         
     }
     
