@@ -26,9 +26,21 @@ class MyCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return myPokemon.count
-    }
+    
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+           
+            if myPokemon.count == 0 {
+                let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: myCollectionView.bounds.size.width, height: myCollectionView.bounds.size.height))
+                noDataLabel.text = "No Pokémon in Collection"
+                noDataLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.7997645548)
+                noDataLabel.textAlignment = .center
+                
+                myCollectionView.backgroundView = noDataLabel
+            } else {
+                myCollectionView.backgroundView = nil
+            }
+            return myPokemon.count
+        }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! PokemonCollectionViewCell
