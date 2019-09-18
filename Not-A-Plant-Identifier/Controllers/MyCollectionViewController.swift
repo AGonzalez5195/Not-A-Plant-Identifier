@@ -22,7 +22,7 @@ class MyCollectionViewController: UIViewController, UICollectionViewDataSource, 
     var selectedPokemonType = ""
     var selectedPokemon: Pokemon!
     
-    let alert = UIAlertController(title: "Delete Pokemon", message: "Would you like to remove the selected Pokemon from your favorites list?", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Delete Pokemon", message: "Would you like to remove the selected Pokémon from your collection?", preferredStyle: .alert)
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
