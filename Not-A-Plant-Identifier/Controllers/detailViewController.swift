@@ -15,6 +15,7 @@ class detailViewController: UIViewController {
     @IBOutlet weak var pokemonNumberLabel: UILabel!
     @IBOutlet weak var pokemonWeightLabel: UILabel!
     @IBOutlet weak var pokemonHeightLabel: UILabel!
+    @IBOutlet weak var pokemonTypeLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var hpStatBar: UIProgressView!
@@ -39,6 +40,7 @@ class detailViewController: UIViewController {
     var currentPokemonType = String()
     var currentPokemonDefaultSprite = String()
     var currentPokemonShinySprite = String()
+    var currentPokemonTypeArray = [String]()
     var favoritedPokemonName = ""
     var favoritedPokemonNumber = 0
     var favoritedPokemon = [Pokemon]()
@@ -62,6 +64,7 @@ class detailViewController: UIViewController {
     
     
     //MARK: -- Functions
+    
     private func loadData(from URL: String) {
         PokeAPI.getPokemonData(pokeAPIURL: URL) { (result) in
             DispatchQueue.main.async {
@@ -120,6 +123,7 @@ class detailViewController: UIViewController {
         pokemonHeightLabel.text = "Ht: \(Pokemon.height)"
         pokemonWeightLabel.text = "Wt: \(Pokemon.weight)"
         pokemonNumberLabel.text = "#\(Pokemon.id)"
+        pokemonTypeLabel.text = currentPokemonTypeArray.joinedStringFromArray.capitalized
         hpNumberLabel.text = Pokemon.stats[5].base_stat.description
         atkNumberLabel.text = Pokemon.stats[4].base_stat.description
         defNumberLabel.text = Pokemon.stats[3].base_stat.description
@@ -149,11 +153,11 @@ class detailViewController: UIViewController {
     private func setUpProgressBar(progressBar: UIProgressView) {
         progressBar.transform = progressBar.transform.scaledBy(x: 1, y: 8)
         
-        if progressBar.progress < 0.3 {
+        if progressBar.progress < 0.2 {
             progressBar.progressTintColor = UIColor.red
-        } else if progressBar.progress >= 0.3 && progressBar.progress <= 0.6 {
+        } else if progressBar.progress >= 0.2 && progressBar.progress <= 0.5 {
             progressBar.progressTintColor = UIColor.orange
-        } else if progressBar.progress > 0.6 {
+        } else if progressBar.progress > 0.5 {
             progressBar.progressTintColor = UIColor.green
         }
         
@@ -190,8 +194,11 @@ class detailViewController: UIViewController {
         prettifyUI()
         loadData(from: currentPokemonURL)
         print(currentPokemonURL)
-        for i in allBars {
-            setUpProgressBar(progressBar: i)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            for i in self.allBars {
+                self.setUpProgressBar(progressBar: i)
+            }
         }
+        
     }
 }

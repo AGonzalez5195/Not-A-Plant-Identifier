@@ -74,6 +74,7 @@ class PokedexViewController: UIViewController {
                     print(error)
                 case .success(let pokemonFromOnlineAPI):
                     self.pokemon = pokemonFromOnlineAPI
+                    dump(pokemonFromOnlineAPI)
                 }
             }
         }
@@ -88,8 +89,9 @@ class PokedexViewController: UIViewController {
                 
                 let destVC = segue.destination as! detailViewController
                 
-                destVC.currentPokemonURL = "https://pokeapi.co/api/v2/pokemon/\(filteredPokemon[indexPath.row].name.lowercased())/".replacingOccurrences(of: "♀", with: "-f")
+                destVC.currentPokemonURL = "https://pokeapi.co/api/v2/pokemon/\(filteredPokemon[indexPath.row].name.lowercased())/"
                 destVC.currentPokemonType = filteredPokemon[indexPath.row].type[0]
+                destVC.currentPokemonTypeArray = filteredPokemon[indexPath.row].type
             }
             
         default:

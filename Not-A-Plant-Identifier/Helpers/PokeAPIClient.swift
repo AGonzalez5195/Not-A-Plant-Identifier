@@ -29,7 +29,7 @@ class PokeAPIClient {
     }
     
     func getFavoritePokemon(searchString: String, completionHandler: @escaping (Result<[Pokemon],AppError>) -> Void ) {
-        let urlStr = "https://www.pokemon.com/us/api/pokedex/Alola"
+        let urlStr = "https://www.pokemon.com/us/api/pokedex/"
         NetworkManager.shared.fetchData(urlString: urlStr) { (result) in
             switch result {
             case .failure(let appError):
